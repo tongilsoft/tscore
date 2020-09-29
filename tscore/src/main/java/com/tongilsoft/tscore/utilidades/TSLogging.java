@@ -2,11 +2,11 @@ package com.tongilsoft.tscore.utilidades;
 
 import android.util.Log;
 
-public class PGLogging {
+public class TSLogging {
     private static final String APP_TAG = "TS";
     private boolean _dbg, _inf, _exc;
 
-    public PGLogging(boolean dbg, boolean inf, boolean exc) {
+    public TSLogging(boolean dbg, boolean inf, boolean exc) {
         _dbg=dbg;
         _inf=inf;
         _exc=exc;

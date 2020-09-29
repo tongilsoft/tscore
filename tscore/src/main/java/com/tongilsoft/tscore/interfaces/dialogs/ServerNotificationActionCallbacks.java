@@ -1,4 +1,4 @@
-package com.tongilsoft.tscore.interfaces.notifications;
+package com.tongilsoft.tscore.interfaces.dialogs;
 
 import androidx.fragment.app.DialogFragment;
 

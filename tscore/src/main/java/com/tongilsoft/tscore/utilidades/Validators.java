@@ -2,7 +2,7 @@ package com.tongilsoft.tscore.utilidades;
 
 public class Validators {
     public static final String TAG = "Validators";
-    public static final PGLogging vLog = new PGLogging(true,true,true);
+    public static final TSLogging vLog = new TSLogging(true,true,true);
     public static boolean validImgPath(String imgName) {
         vLog.d(TAG,"validImgPath()");
 

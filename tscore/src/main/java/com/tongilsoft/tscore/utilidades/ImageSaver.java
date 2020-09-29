@@ -20,13 +20,13 @@ public class ImageSaver {
 
     public static final String TAG = "ImageSaver";
     public static final int
-            TASK_SYNC_IMG_FORMAT_NONE = 0,
-            TASK_SYNC_IMG_FORMAT_JPEG = 1,
-            TASK_SYNC_IMG_FORMAT_PNG = 2,
-            TASK_SYNC_IMG_FORMAT_GIF = 3,
-            TASK_SYNC_IMG_FORMAT_JPG = 4,
-            TASK_SYNC_IMG_FORMAT_WEBP = 5;
-    public static final String[] TASK_SYNC_IMG_FORMAT_STRINGS = {
+            IMG_FORMAT_NONE = 0,
+            IMG_FORMAT_JPEG = 1,
+            IMG_FORMAT_PNG = 2,
+            IMG_FORMAT_GIF = 3,
+            IMG_FORMAT_JPG = 4,
+            IMG_FORMAT_WEBP = 5;
+    public static final String[] IMG_FORMAT_STRINGS = {
             "",
             ".jpeg",
             ".png",
@@ -34,7 +34,7 @@ public class ImageSaver {
             ".jpg",
             ".webp"
     };
-    private final PGLogging mLog = new PGLogging(true,true,true);
+    private final TSLogging mLog = new TSLogging(true,true,true);
     private Context mContext;
     private File mDefaultDirectory, mDirectory;
     private String mDirectoryName = "images";
@@ -166,19 +166,19 @@ public class ImageSaver {
             fileOutputStream = new FileOutputStream(file2Save);
             if (fileOutputStream != null) {
                 switch (preferredFormat) {
-                    case TASK_SYNC_IMG_FORMAT_PNG:
+                    case IMG_FORMAT_PNG:
                         bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
                         break;
-                    case TASK_SYNC_IMG_FORMAT_GIF:
+                    case IMG_FORMAT_GIF:
                         bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
                         break;
-                    case TASK_SYNC_IMG_FORMAT_JPEG:
+                    case IMG_FORMAT_JPEG:
                         bitmapImage.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
                         break;
-                    case TASK_SYNC_IMG_FORMAT_JPG:
+                    case IMG_FORMAT_JPG:
                         bitmapImage.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
                         break;
-                    case TASK_SYNC_IMG_FORMAT_WEBP:
+                    case IMG_FORMAT_WEBP:
                         bitmapImage.compress(Bitmap.CompressFormat.WEBP, 100, fileOutputStream);
                         break;
                 }

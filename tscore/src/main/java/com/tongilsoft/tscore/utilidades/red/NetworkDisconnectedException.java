@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class NetworkDisconnectedException extends IOException {
     public static final String DEFAULT_MESSAGE = "Su dispositivo esta desconectado de la red de la empresa.\n" +
-            "Por favor verifique si esta conectado a GalaxiaTab.";
+            "Por favor verifique si esta conectado...";
     /**
      * Constructs an {@code NetworkDisconnectedException} with {@code null}
      * as its error detail message.

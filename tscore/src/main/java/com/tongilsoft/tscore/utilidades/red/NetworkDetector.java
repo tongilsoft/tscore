@@ -7,11 +7,11 @@ import android.os.Build;
 import android.widget.Toast;
 
 import com.tongilsoft.tscore.BuildConfig;
-import com.tongilsoft.tscore.Recursos;
+import com.tongilsoft.tscore.TSRecursos;
 
 public class NetworkDetector {
     public static final int
-            NETWORK_TYPE_CONFESS = 0,
+            NETWORK_TYPE_REVEAL = 0,
             NETWORK_TYPE_ANY = 1,
             NETWORK_TYPE_WIFI = 2,
             NETWORK_TYPE_MOBILE = 3;
@@ -24,9 +24,9 @@ public class NetworkDetector {
          * useNetworkType = NETWORK_TYPE_ANY;
          */
         /*switch(BuildConfig.CUSTOM_BUILD_TYPE){
-            case Recursos.BUILD_TYPE_RELEASE:
+            case TSRecursos.BUILD_TYPE_RELEASE:
                 switch(BuildConfig.CUSTOM_PRODUCT_FLAVOR){
-                    case Recursos.PRODUCT_FLAVOR_EXTERNO:
+                    case TSRecursos.PRODUCT_FLAVOR_EXTERNO:
                         // para produccion -> NETWORK_TYPE_ANY
                         useNetworkType = NETWORK_TYPE_ANY;
                         break;
@@ -89,7 +89,7 @@ public class NetworkDetector {
         */
         //v4
         switch(BuildConfig.CORE_BUILD_TYPE) {
-            case Recursos.BUILD_TYPE_RELEASE:
+            case TSRecursos.BUILD_TYPE_RELEASE:
                 // July 2013: Android 4.3 (API 18)
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
                     return true;

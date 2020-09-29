@@ -9,8 +9,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
-import com.tongilsoft.tscore.interfaces.notifications.ServerNotificationActionCallbacks;
-import com.tongilsoft.tscore.utilidades.PGLogging;
+import com.tongilsoft.tscore.interfaces.dialogs.ServerNotificationActionCallbacks;
+import com.tongilsoft.tscore.utilidades.TSLogging;
 
 public class NotificationDialog extends DialogFragment {
 
@@ -36,11 +36,11 @@ public class NotificationDialog extends DialogFragment {
 
 
     private int dlg_type = 0;
-    public PGLogging log;
+    public TSLogging log;
     public ServerNotificationActionCallbacks serverNotificationActionCallbacks;
 
     public NotificationDialog(){
-        log=new PGLogging(true,true,true);
+        log=new TSLogging(true,true,true);
     }
 
     public void setTitle(String title){
@@ -69,9 +69,9 @@ public class NotificationDialog extends DialogFragment {
         log.d(TAG,"onAttach()");
         try {
             serverNotificationActionCallbacks = (ServerNotificationActionCallbacks) getActivity();
-        } catch (ClassCastException e) {
-            throw new ClassCastException(getActivity().toString()
-                    + " la interfaz ServerNotificationActionCallbacks no está implementada.");
+        } catch (ClassCastException cce) {
+            String msg = "La interfaz ServerNotificationActionCallbacks no está implementada.";
+            log.e(TAG,"onAttach() -> ClassCastException",cce);
         }
     }
 
@@ -89,7 +89,7 @@ public class NotificationDialog extends DialogFragment {
                 builder.setPositiveButton(DLG_POSITIVE_BUTTON_CAPTION, new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int id){
-                        serverNotificationActionCallbacks.onNegativeButtonPressed(NotificationDialog.this);
+                        serverNotificationActionCallbacks.onPositiveButtonPressed(NotificationDialog.this);
                     }
                 });
                 break;
@@ -99,7 +99,7 @@ public class NotificationDialog extends DialogFragment {
                 builder.setPositiveButton(DLG_POSITIVE_BUTTON_CAPTION, new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int id){
-                        serverNotificationActionCallbacks.onNegativeButtonPressed(NotificationDialog.this);
+                        serverNotificationActionCallbacks.onPositiveButtonPressed(NotificationDialog.this);
                     }
                 });
                 break;

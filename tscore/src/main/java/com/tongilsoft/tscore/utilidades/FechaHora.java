@@ -238,8 +238,8 @@ public class FechaHora {
 
         public static String restarFechas(String fechaInicio, String fehcaFin, boolean allowDays,
                                           boolean allowHours, boolean allowMinutes, boolean allowSeconds) {
-            PGLogging log;
-            log = new PGLogging(true,false,true);
+            TSLogging log;
+            log = new TSLogging(true,false,true);
 
             ISO8806.ExtendedFormat extendedFormat=new ISO8806.ExtendedFormat();
             Date startDate = extendedFormat.parseString(fechaInicio, 0).getTime();
