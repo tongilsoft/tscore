@@ -37,6 +37,8 @@ public class MainActivity extends TSBaseActivity {
     public void onPositiveButtonPressed(DialogFragment dialog) {
         mLog.d(TAG,"onPositiveButtonPressed()");
 
+        super.onPositiveButtonPressed(dialog);
+
         Context context = getApplicationContext();
 
         if(context != null) {
@@ -45,8 +47,5 @@ public class MainActivity extends TSBaseActivity {
         } else{
             mLog.d(TAG,"onPositiveButtonPressed() -> context is NULL");
         }
-
-        super.onPositiveButtonPressed(dialog);
-
     }
 }

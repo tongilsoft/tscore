@@ -1,5 +1,6 @@
 package com.tongilsoft.tscore.gui.dialog;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
+import com.tongilsoft.tscore.R;
 import com.tongilsoft.tscore.interfaces.dialogs.ServerNotificationActionCallbacks;
 import com.tongilsoft.tscore.utilidades.TSLogging;
 
@@ -68,10 +70,14 @@ public class NotificationDialog extends DialogFragment {
         super.onAttach(context);
         log.d(TAG,"onAttach()");
         try {
-            serverNotificationActionCallbacks = (ServerNotificationActionCallbacks) getActivity();
+            if(getActivity() instanceof ServerNotificationActionCallbacks) {
+                serverNotificationActionCallbacks = (ServerNotificationActionCallbacks) getActivity();
+            } else {
+                String msg = getString(R.string.interface_not_implemented01);
+                throw new ClassCastException(msg);
+            }
         } catch (ClassCastException cce) {
-            String msg = "La interfaz ServerNotificationActionCallbacks no está implementada.";
-            log.e(TAG,"onAttach() -> ClassCastException",cce);
+            log.e(TAG, "onAttach() -> ClassCastException", cce);
         }
     }
 
@@ -89,7 +95,16 @@ public class NotificationDialog extends DialogFragment {
                 builder.setPositiveButton(DLG_POSITIVE_BUTTON_CAPTION, new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int id){
-                        serverNotificationActionCallbacks.onPositiveButtonPressed(NotificationDialog.this);
+                        try {
+                            if(getActivity() instanceof ServerNotificationActionCallbacks) {
+                                serverNotificationActionCallbacks.onPositiveButtonPressed(NotificationDialog.this);
+                            } else {
+                                String msg = getString(R.string.interface_not_implemented01);
+                                throw new ClassCastException(msg);
+                            }
+                        } catch (ClassCastException cce) {
+                            log.e(TAG, "onClick() -> ClassCastException", cce);
+                        }
                     }
                 });
                 break;
@@ -99,7 +114,16 @@ public class NotificationDialog extends DialogFragment {
                 builder.setPositiveButton(DLG_POSITIVE_BUTTON_CAPTION, new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int id){
-                        serverNotificationActionCallbacks.onPositiveButtonPressed(NotificationDialog.this);
+                        try {
+                            if(getActivity() instanceof ServerNotificationActionCallbacks) {
+                                serverNotificationActionCallbacks.onPositiveButtonPressed(NotificationDialog.this);
+                            } else {
+                                String msg = getString(R.string.interface_not_implemented01);
+                                throw new ClassCastException(msg);
+                            }
+                        } catch (ClassCastException cce) {
+                            log.e(TAG, "onClick() -> ClassCastException", cce);
+                        }
                     }
                 });
                 break;
@@ -109,12 +133,30 @@ public class NotificationDialog extends DialogFragment {
                 builder.setNegativeButton(DLG_NEGATIVE_BUTTON_CAPTION, new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int id){
-                        serverNotificationActionCallbacks.onNegativeButtonPressed(NotificationDialog.this);
+                        try {
+                            if(getActivity() instanceof ServerNotificationActionCallbacks) {
+                                serverNotificationActionCallbacks.onNegativeButtonPressed(NotificationDialog.this);
+                            } else {
+                                String msg = getString(R.string.interface_not_implemented01);
+                                throw new ClassCastException(msg);
+                            }
+                        } catch (ClassCastException cce) {
+                            log.e(TAG, "onClick() -> ClassCastException", cce);
+                        }
                     }
                 }).setPositiveButton(DLG_POSITIVE_BUTTON_CAPTION,new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int id){
-                        serverNotificationActionCallbacks.onPositiveButtonPressed(NotificationDialog.this);
+                        try {
+                            if(getActivity() instanceof ServerNotificationActionCallbacks) {
+                                serverNotificationActionCallbacks.onPositiveButtonPressed(NotificationDialog.this);
+                            } else {
+                                String msg = getString(R.string.interface_not_implemented01);
+                                throw new ClassCastException(msg);
+                            }
+                        } catch (ClassCastException cce) {
+                            log.e(TAG, "onClick() -> ClassCastException", cce);
+                        }
                     }
                 });
                 break;
@@ -125,12 +167,30 @@ public class NotificationDialog extends DialogFragment {
                 builder.setNegativeButton(DLG_NEGATIVE_BUTTON_CAPTION, new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int id){
-                        serverNotificationActionCallbacks.onNegativeButtonPressed(NotificationDialog.this);
+                        try {
+                            if(getActivity() instanceof ServerNotificationActionCallbacks) {
+                                serverNotificationActionCallbacks.onNegativeButtonPressed(NotificationDialog.this);
+                            } else {
+                                String msg = getString(R.string.interface_not_implemented01);
+                                throw new ClassCastException(msg);
+                            }
+                        } catch (ClassCastException cce) {
+                            log.e(TAG, "onClick() -> ClassCastException", cce);
+                        }
                     }
                 }).setPositiveButton(DLG_POSITIVE_BUTTON_CAPTION,new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int id){
-                        serverNotificationActionCallbacks.onPositiveButtonPressed(NotificationDialog.this);
+                        try {
+                            if(getActivity() instanceof ServerNotificationActionCallbacks) {
+                                serverNotificationActionCallbacks.onPositiveButtonPressed(NotificationDialog.this);
+                            } else {
+                                String msg = getString(R.string.interface_not_implemented01);
+                                throw new ClassCastException(msg);
+                            }
+                        } catch (ClassCastException cce) {
+                            log.e(TAG, "onClick() -> ClassCastException", cce);
+                        }
                     }
                 });
                 break;
