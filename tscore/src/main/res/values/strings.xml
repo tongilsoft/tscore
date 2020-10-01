@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="interface_not_implemented01">La interfaz ServerNotificationActionCallbacks no está implementada.</string>
+    <string name="app_name">Core Test App</string>
 </resources>
